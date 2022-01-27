@@ -1,5 +1,6 @@
 from rest_framework import permissions
 
+
 class UpdateOwnProfile(permissions.BasePermission):
     """used for making user edit his own profile not other"""
 
@@ -7,5 +8,5 @@ class UpdateOwnProfile(permissions.BasePermission):
         """check user is trying to edit their own profile"""
         if request.method in permissions.SAFE_METHODS:
             return True
-            
+
         return obj.id == request.user.id
